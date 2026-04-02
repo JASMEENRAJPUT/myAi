@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global Smooth Theme */
+* {
+  @apply transition-all duration-300;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gradient-to-br from-slate-50 to-slate-100 
+         dark:from-slate-900 dark:to-slate-950 
+         text-slate-900 dark:text-white;
+}
+
+/* Code Editor Styles */
+.react-simple-code-editor__textarea {
+  @apply font-mono !important;
+}
+
+/* Markdown Styling */
+.prose {
+  @apply max-w-none;
+}
+
+.prose code {
+  @apply px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-indigo-600 dark:text-indigo-300;
+}
+
+.prose pre {
+  @apply bg-slate-900 dark:bg-black text-slate-200 p-4 rounded-lg border border-slate-700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-200 dark:bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-indigo-500 rounded hover:bg-indigo-600;
+}
+
+/* Glass Card Effect */
+.glass {
+  @apply backdrop-blur-xl bg-white/70 dark:bg-slate-800/60 border border-white/20;
+}
+
+/* Gradient Text */
+.gradient-text {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 
+         bg-clip-text text-transparent;
+}
+
+/* AI Button */
+.ai-button {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+         hover:from-purple-600 hover:to-indigo-600
+         text-white font-bold py-3 px-6 rounded-lg shadow-lg
+         hover:shadow-2xl hover:scale-105 active:scale-95;
+}
