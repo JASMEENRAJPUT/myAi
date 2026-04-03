@@ -43,7 +43,7 @@ function App() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/ai/get-review/",
+        "/api/ai/get-review/",
         { code }
       );
       setReview(response.data);

@@ -1,8 +1,22 @@
 const Groq = require("groq-sdk");
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
+let groqClient;
+
+function getGroqClient() {
+  if (!process.env.GROQ_API_KEY) {
+    throw new Error("GROQ_API_KEY is not configured");
+  }
+
+  if (!groqClient) {
+    groqClient = new Groq({ apiKey: process.env.GROQ_API_KEY });
+  }
+
+  return groqClient;
+}
 
 async function getResponse(prompt) {
-  const chatCompletion = await groq.chat.completions.create({
+  const client = getGroqClient();
+  const chatCompletion = await client.chat.completions.create({
     model: "llama-3.1-8b-instant",
     messages: [
       {

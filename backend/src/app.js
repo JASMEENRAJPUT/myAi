@@ -15,9 +15,9 @@ app.get("/api/hello", (req, res) => {
   res.json({ message: "Hello from backend" });
 });
 
-app.use('/ai', aiRoutes);
-
-app.listen(3000, () => {
-  console.log("Backend running on port 3000");
+app.use('/api/ai', aiRoutes);
+app.get("/api/test", (req, res) => {
+  res.json({ message: "Backend working on Vercel" });
 });
+
 module.exports = app
